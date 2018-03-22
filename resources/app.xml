@@ -7,15 +7,42 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         
+	<context:annotation-config/>
+        
 	<!-- 
 		Same
 		<context:property-placeholder location="classpath:dataSource.properties"/>
 	-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="classpath:dataSource.properties" />
+		<property name="locations">
+			<value>classpath:dataSource.properties</value>
+		</property>
+		<property name="properties">
+	        <value>custom.strategy.class=com.masinew.bean.Message</value>
+	    </property>
 	</bean>
 
     <bean id="message" class="com.masinew.bean.Message">
-        <property name="message" value="${message}" />
+    	<qualifier value="champ" />
+    	<property name="message" value="${message}" />
     </bean>
+    <bean id="message2" class="com.masinew.bean.Message" primary="true">
+    	<qualifier value="champ" />
+    	<property name="message" value="${message} ASDASDASD" />
+    </bean>
+    
+    <bean id="messageNa" class="com.masinew.bean.Messager" />
+    
+    <bean id="messageNa2" class="com.masinew.bean.Messager2" />
+    
+    
+    
+    <bean id="customMessage" class="${custom.strategy.class}" />
+    
+    <!-- Annotation TEST -->
+    <!-- <bean id="annoMessage" class="com.masinew.spring.Message">
+    	<property name="message" value="${message}" />
+    </bean>
+    
+    <bean id="annoMessager" class="com.masinew.spring.bean.Messager" />  -->
 </beans>
