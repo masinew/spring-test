@@ -1,4 +1,4 @@
-package com.masinew.spring.bean;
+package com.masinew.spring.annotation.bean;
 
 public class Message {
 	private String message;

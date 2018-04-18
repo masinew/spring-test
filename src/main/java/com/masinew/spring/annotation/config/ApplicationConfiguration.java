@@ -1,12 +1,11 @@
-package com.masinew.spring.config;
+package com.masinew.spring.annotation.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
-import com.masinew.spring.bean.Message;
-import com.masinew.spring.bean.Messager;
+import com.masinew.spring.annotation.bean.Message;
+import com.masinew.spring.annotation.bean.Messager;
 
 @Configuration
 public class ApplicationConfiguration {

@@ -1,6 +1,4 @@
-package com.masinew.bean;
-
-import java.util.List;
+package com.masinew.spring.annotation.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,14 +6,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 public class Messager {
 	
 	@Autowired
-	@Qualifier("champ")
-	private List<Message> message;
+	@Qualifier("champ1")
+	private Message message;
 	
-	public void setMessage(List<Message> message) {
+	public void setMessage(Message message) {
 		this.message = message;
 	}
 	
-	public List<Message> getMessage() {
+	public Message getMessage() {
 		return message;
 	}
 }

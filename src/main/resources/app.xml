@@ -15,34 +15,45 @@
 	-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
-			<value>classpath:dataSource.properties</value>
+			<list>
+				<value>classpath:dataSource.properties</value>
+				<value>classpath:jdbc-db2.properties</value>
+			</list>
 		</property>
 		<property name="properties">
-	        <value>custom.strategy.class=com.masinew.bean.Message</value>
+	        <value>customMessClass=com.masinew.spring.xml.bean.Message</value>
 	    </property>
 	</bean>
 
-    <bean id="message" class="com.masinew.bean.Message">
+    <bean id="message" class="com.masinew.spring.xml.bean.Message">
     	<qualifier value="champ" />
     	<property name="message" value="${message}" />
     </bean>
-    <bean id="message2" class="com.masinew.bean.Message" primary="true">
+
+    <bean id="message2" class="com.masinew.spring.xml.bean.Message" primary="true">
     	<qualifier value="champ" />
-    	<property name="message" value="${message} ASDASDASD" />
+    	<property name="message" value="${message} Primary message" />
     </bean>
     
-    <bean id="messageNa" class="com.masinew.bean.Messager" />
+    <bean id="messageNa" class="com.masinew.spring.xml.bean.Messager" />
     
-    <bean id="messageNa2" class="com.masinew.bean.Messager2" />
+    <bean id="messageNa2" class="com.masinew.spring.xml.bean.Messager2" />
     
     
     
-    <bean id="customMessage" class="${custom.strategy.class}" />
+    <bean id="customMessage" class="${customMessClass}">
+		<property name="message" value="${customMessage}" />
+	</bean>
+
+	<bean id="db2" class="com.masinew.spring.xml.bean.Jdbc">
+		<property name="url" value="${url}" />
+		<property name="port" value="${port}" />
+	</bean>
     
     <!-- Annotation TEST -->
     <!-- <bean id="annoMessage" class="com.masinew.spring.Message">
     	<property name="message" value="${message}" />
     </bean>
     
-    <bean id="annoMessager" class="com.masinew.spring.bean.Messager" />  -->
+    <bean id="annoMessager" class="Messager" />  -->
 </beans>
