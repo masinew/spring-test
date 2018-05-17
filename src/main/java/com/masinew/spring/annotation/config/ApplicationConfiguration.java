@@ -72,14 +72,14 @@ public class ApplicationConfiguration {
 		return store;
 	}
 	
-	@Bean(name="stringStore")
+	@Bean("stringStore1")
     public Store<String> stringStore1() {
 		Store<String> store = new Store<String>();
 		store.setValue("CHAMP1");
         return store;
     }
 	
-	@Bean(name="stringStore")
+	@Bean
     public Store<String> stringStore2() {
 		Store<String> store = new Store<String>();
 		store.setValue("CHAMP2");
@@ -98,7 +98,7 @@ public class ApplicationConfiguration {
 //        return storeList;
 //    }
     
-    @Bean(autowire=Autowire.BY_TYPE)
+    @Bean
     public StoreFactory storeFactory() {
     	return new StoreFactory();
     }

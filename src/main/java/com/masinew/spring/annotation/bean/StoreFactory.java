@@ -3,6 +3,7 @@ package com.masinew.spring.annotation.bean;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("storeFactory")
@@ -12,7 +13,7 @@ public class StoreFactory {
 	private Store<Integer> integerStore;
 	
 	@Autowired
-	private Store<String> stringStore;
+	private Store<String> stringStore1;
 	
 	@Autowired
 	private List<Store<String>> stringStoreList;
@@ -26,11 +27,11 @@ public class StoreFactory {
 	}
 
 	public Store<String> getStringStore() {
-		return stringStore;
+		return stringStore1;
 	}
 
 	public void setStringStore(Store<String> stringStore) {
-		this.stringStore = stringStore;
+		this.stringStore1 = stringStore;
 	}
 
 	public List<Store<String>> getStringStoreList() {
