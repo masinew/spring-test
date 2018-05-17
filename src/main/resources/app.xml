@@ -35,6 +35,16 @@
     	<property name="message" value="${message} Primary message" />
     </bean>
     
+    <bean id="messageGType1" class="com.masinew.spring.xml.bean.Message" autowire="default">
+    	<qualifier type="com.masinew.spring.annotation.annotation.Genre" value="Action" />
+    	<property name="message" value="${message} Action Value" />
+    </bean>
+    
+    <bean id="messageGType2" class="com.masinew.spring.xml.bean.Message">
+    	<qualifier type="com.masinew.spring.annotation.annotation.Genre" value="Comedy" />
+    	<property name="message" value="${message} Comedy Value" />
+    </bean>
+    
     <bean id="messageNa" class="com.masinew.spring.xml.bean.Messager" />
     
     <bean id="messageNa2" class="com.masinew.spring.xml.bean.Messager2" />
@@ -49,6 +59,23 @@
 		<property name="url" value="${url}" />
 		<property name="port" value="${port}" />
 	</bean>
+	
+	
+	
+	<!-- MovieRecommeder -->
+	<context:annotation-config />
+	
+	<bean class="com.masinew.spring.annotation.bean.MovieCatalog">
+        <qualifier type="Genre" value="Action"/>
+        <property name="name" value="FF8888" />
+    </bean>
+
+    <bean class="com.masinew.spring.annotation.bean.MovieCatalog">
+        <qualifier type="Genre" value="Comedy"/>
+        <property name="name" value="Mr. Bean" />
+    </bean>
+
+    <bean id="movieRecommender" class="com.masinew.spring.annotation.bean.MovieRecommender"/>
     
     <!-- Annotation TEST -->
     <!-- <bean id="annoMessage" class="com.masinew.spring.Message">
