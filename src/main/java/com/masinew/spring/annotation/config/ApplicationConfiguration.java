@@ -72,8 +72,8 @@ public class ApplicationConfiguration {
 		return store;
 	}
 	
-	@Bean("stringStore1")
-    public Store<String> stringStore1() {
+	@Bean
+    public Store<String> stringStore() {
 		Store<String> store = new Store<String>();
 		store.setValue("CHAMP1");
         return store;

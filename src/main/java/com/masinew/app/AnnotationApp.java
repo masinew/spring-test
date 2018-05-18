@@ -5,6 +5,7 @@ import com.masinew.spring.annotation.bean.Message;
 import com.masinew.spring.annotation.bean.MessageManager;
 import com.masinew.spring.annotation.bean.MovieCatalog;
 import com.masinew.spring.annotation.bean.MovieRecommender;
+import com.masinew.spring.annotation.bean.Store;
 import com.masinew.spring.annotation.bean.StoreFactory;
 import com.masinew.spring.annotation.config.ApplicationConfiguration;
 
@@ -42,6 +43,8 @@ public class AnnotationApp {
         StoreFactory storeFactory = actx.getBean(StoreFactory.class);
         System.out.println(storeFactory.getIntegerStore().getValue());
         System.out.println(storeFactory.getStringStore().getValue());
-        System.out.println(storeFactory.getStringStoreList().size());
+        for (Store<String> store : storeFactory.getStringStoreList()) {
+        	System.out.println(store.getValue());
+        }
     }
 }
