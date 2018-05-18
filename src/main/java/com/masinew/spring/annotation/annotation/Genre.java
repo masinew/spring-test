@@ -14,7 +14,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 
 @Target({ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-@Qualifier
+// @Qualifier: if sets this annotation class in CustomAutowireConfigurer class. you do not define this annotation
+// for a custom Qualifier annotation like this annotation class
 public @interface Genre {
 
     String value();

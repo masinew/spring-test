@@ -1,9 +1,12 @@
 package com.masinew.spring.annotation.config;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -85,6 +88,13 @@ public class ApplicationConfiguration {
 		store.setValue("CHAMP2");
         return store;
     }
+	
+	@Bean
+	public Store<String> stringStoreResource() {
+		Store<String> store = new Store<String>();
+		store.setValue("stringStoreResource");
+        return store;
+	}
 //	
 //	@Bean
 //    public List<Store<String>> stringStoreList() {
@@ -101,6 +111,15 @@ public class ApplicationConfiguration {
     @Bean
     public StoreFactory storeFactory() {
     	return new StoreFactory();
+    }
+    
+    @Bean
+    public CustomAutowireConfigurer customAutowireConfigurer() {
+    	Set<String> customQualifierTypes = new HashSet<String>();
+    	CustomAutowireConfigurer customAutowireConfigurer = new CustomAutowireConfigurer();
+    	customQualifierTypes.add("com.masinew.spring.annotation.annotation.Genre");
+    	customAutowireConfigurer.setCustomQualifierTypes(customQualifierTypes);
+    	return customAutowireConfigurer;
     }
 	
 }

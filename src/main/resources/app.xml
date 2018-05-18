@@ -63,7 +63,6 @@
 	
 	
 	<!-- MovieRecommeder -->
-	<context:annotation-config />
 	
 	<bean class="com.masinew.spring.annotation.bean.MovieCatalog">
         <qualifier type="Genre" value="Action"/>

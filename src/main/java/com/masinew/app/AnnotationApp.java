@@ -44,7 +44,10 @@ public class AnnotationApp {
         System.out.println(storeFactory.getIntegerStore().getValue());
         System.out.println(storeFactory.getStringStore().getValue());
         for (Store<String> store : storeFactory.getStringStoreList()) {
-        	System.out.println(store.getValue());
+        	System.out.println("List Value: " + store.getValue());
         }
+        
+        Store<String> forResourceAnnotation = storeFactory.getStringStoreResource();
+        System.out.println("ResourceAnnotation: " + forResourceAnnotation.getValue());
     }
 }
