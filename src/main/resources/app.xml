@@ -63,14 +63,20 @@
 	
 	
 	<!-- MovieRecommeder -->
-	
+	<bean class="org.springframework.beans.factory.annotation.CustomAutowireConfigurer">
+		<property name="customQualifierTypes">
+			<set>
+				<value>com.masinew.spring.annotation.annotation.Genre</value>
+			</set>
+		</property>
+	</bean>
 	<bean class="com.masinew.spring.annotation.bean.MovieCatalog">
-        <qualifier type="Genre" value="Action"/>
+        <qualifier type="com.masinew.spring.annotation.annotation.Genre" value="Action"/>
         <property name="name" value="FF8888" />
     </bean>
 
     <bean class="com.masinew.spring.annotation.bean.MovieCatalog">
-        <qualifier type="Genre" value="Comedy"/>
+        <qualifier type="com.masinew.spring.annotation.annotation.Genre" value="Comedy"/>
         <property name="name" value="Mr. Bean" />
     </bean>
 
