@@ -8,6 +8,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
         
 	<context:annotation-config/>
+	<context:component-scan base-package="com.masinew.spring.xml.bean.auto" />
         
 	<!-- 
 		Same
@@ -88,4 +89,10 @@
     </bean>
     
     <bean id="annoMessager" class="Messager" />  -->
+    
+    <!-- Auto -->
+    <!-- <bean class="com.masinew.spring.xml.bean.auto.MessageAuto" name="messageAuto">
+    	<property name="message" value="Message Auto from XML Configuration" />
+    </bean>
+     -->
 </beans>

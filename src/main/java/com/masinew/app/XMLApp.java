@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.masinew.spring.xml.bean.Message;
+import com.masinew.spring.xml.bean.auto.MessagerAuto;
 
 public class XMLApp {
 	
@@ -39,6 +40,11 @@ public class XMLApp {
 		MovieRecommender movieRecommender = context.getBean(MovieRecommender.class);
 		MovieCatalog actionCatalog = movieRecommender.getActionCatalog();
 		System.out.println(actionCatalog.getName());
+		
+		
+		
+		MessagerAuto messageAuto = context.getBean(MessagerAuto.class);
+		System.out.println(messageAuto.getMessage().getMessage());
 
     }
 }
