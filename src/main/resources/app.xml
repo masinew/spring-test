@@ -26,7 +26,7 @@
 	    </property>
 	</bean>
 
-    <bean id="message" class="com.masinew.spring.xml.bean.Message">
+    <bean id="message" class="com.masinew.spring.xml.bean.Message" destroy-method="dest">
     	<qualifier value="champ" />
     	<property name="message" value="${message}" />
     </bean>

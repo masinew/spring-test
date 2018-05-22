@@ -8,14 +8,18 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Description;
+import org.springframework.context.annotation.Scope;
 
 import com.masinew.spring.annotation.annotation.Genre;
 import com.masinew.spring.annotation.bean.IntegerStore;
 import com.masinew.spring.annotation.bean.Message;
 import com.masinew.spring.annotation.bean.MessageManager;
+import com.masinew.spring.annotation.bean.Messager;
 import com.masinew.spring.annotation.bean.MovieCatalog;
 import com.masinew.spring.annotation.bean.MovieRecommender;
 import com.masinew.spring.annotation.bean.Store;
@@ -23,8 +27,15 @@ import com.masinew.spring.annotation.bean.StoreFactory;
 import com.masinew.spring.annotation.bean.StringStore;
 
 @Configuration
-@ComponentScan(basePackages={"com.masinew.spring.annotation"})
+@ComponentScan(basePackages={"com.masinew.spring.annotation.auto"})
 public class ApplicationConfiguration {
+	
+	@Bean
+    public Messager messagerDepending(Message sayHiMessage) {
+    	Messager messager = new Messager();
+    	messager.setMessage(sayHiMessage);
+    	return messager;
+    }
 	
 	@Bean
 	@Qualifier("helloWorldMessage")
@@ -36,6 +47,7 @@ public class ApplicationConfiguration {
 	
 	@Bean
 	@Qualifier("sayHiMessage")
+	@Scope(scopeName=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public Message sayHiMessage() {
 		Message message = new Message();
 		message.setMessage("Hi...");

@@ -51,12 +51,19 @@
 	    <artifactId>spring-beans</artifactId>
 	    <version>${spring-version}</version>
 	</dependency>
-	  <dependency>
-		  <groupId>org.springframework</groupId>
-		  <artifactId>spring-test</artifactId>
-		  <version>${spring-version}</version>
-		  <scope>compile</scope>
-	  </dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring-version}</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-indexer</artifactId>
+        <version>${spring-version}</version>
+        <optional>true</optional>
+    </dependency>
 
   </dependencies>
 </project>
