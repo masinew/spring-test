@@ -9,6 +9,7 @@ import com.masinew.spring.annotation.bean.MovieRecommender;
 import com.masinew.spring.annotation.bean.Store;
 import com.masinew.spring.annotation.bean.StoreFactory;
 import com.masinew.spring.annotation.bean.MessageDepending;
+import com.masinew.spring.annotation.bean.XMLData;
 import com.masinew.spring.annotation.config.ApplicationConfiguration;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,8 +20,12 @@ import sun.misc.Contended;
 
 public class AnnotationApp {
     public static void main(String[] args) {
-        ApplicationContext actx = new AnnotationConfigApplicationContext(
-                ApplicationConfiguration.class);
+    	AnnotationConfigApplicationContext actx = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
+    	boolean a = actx.getEnvironment().containsProperty("spring.profiles.active");
+    	System.out.println("CHAMP >>> " + a);
+//        actx.getEnvironment().setActiveProfiles("dev");
+//        actx.register(ApplicationConfiguration.class);
+//        actx.refresh();
         
         // @Qualifier
         // Message: HelloWorld
@@ -64,5 +69,6 @@ public class AnnotationApp {
         System.out.println(messagerDepending.getMessage().getMessage());
         System.out.println(sayHiMessage.getMessage());
         
+        //
     }
 }
